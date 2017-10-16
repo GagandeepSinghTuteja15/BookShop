@@ -2,6 +2,8 @@ package com.emids.services;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import com.emids.Main.OnlineBookShop;
 import com.emids.domain.Book;
 
 public class ShoppingCart {
@@ -13,16 +15,17 @@ public class ShoppingCart {
 	}
 
 	static void showDetailsOfOrder() {
+		System.out.println("Enter the quantity");
+		int quantity = scanner.nextInt();
 		double total = 0;
 		for (int i = 0; i < bookList.size(); i++) {
 
-			System.out.println(bookList.get(i));
 			Book bookName = Product.bookList.get(i);
 			total = bookName.getPrice() + total;
 		}
 		String GST = "18%";
-		System.out.println("\nBill is " + total + "\n" + "Gst is " + GST + "\n" + "Total bill is "
-				+ ((total * 0.18) + total) + "\n");
+		System.out.println("\nBill = " + total + "\n" + "Gst = " + GST + "\n" + "Quantity= " + quantity
+				+ "\nTotal bill = " + (((total * 0.18) + total) * quantity) + "\n");
 		System.out.println("Shipping address is \n" + Customer.address + "\n");
 		changeCustomerAddress();
 	}
@@ -46,8 +49,10 @@ public class ShoppingCart {
 		if (value == 1 || value == 2) {
 			System.out.println("Thanks for Shopping");
 			System.exit(0);
-		} else if (value == 3)
+		} else if (value == 3) {
+			System.out.println("Thank you \n Refresh the page");
 			System.exit(0);
+		}
 		else {
 			System.out.println("Wrong Input");
 			makePayment();
@@ -69,7 +74,7 @@ public class ShoppingCart {
 
 	static void cartOption() {
 		System.out
-				.println(" Enter 1 to remove book from cart \n Enter 2 to order book from list \n Enter 3 to exist\n");
+		.println(" Enter 1 to remove book from cart \n Enter 2 to order book from list \n Enter 3 to exist\n");
 		int number = scanner.nextInt();
 		Customer customer = new Customer();
 		switch (number) {
@@ -81,7 +86,7 @@ public class ShoppingCart {
 			placeOrder();
 			break;
 		case 3:
-			System.exit(0);
+			new OnlineBookShop().userTask();
 			break;
 		default:
 			break;

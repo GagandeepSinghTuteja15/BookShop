@@ -2,13 +2,13 @@ package com.emids.services;
 
 import java.util.Scanner;
 
-import com.emids.Main.BookShop;
+import com.emids.Main.OnlineBookShop;
 import com.emids.domain.Book;
 
 public class Customer {
 	String customerName = "user";
 	String customerPassword = "user";
-	static String address = "Champak Pragati Tower Bangalore";
+	static String address = "Champak Pragati Tower Bangalore, 560010";
 	Scanner scanner = new Scanner(System.in);
 
 	String checkCustomer(String customerName, String customerPassword) {
@@ -20,8 +20,8 @@ public class Customer {
 
 	public int selectSerialNumber() {
 		System.out.println("Write serial no to Select book\n");
-		int num = scanner.nextInt();
-		return num;
+		int number = scanner.nextInt();
+		return number;
 	}
 
 	public void userOption() {
@@ -47,7 +47,7 @@ public class Customer {
 			new Inventory().searchProduct();
 			break;
 		case 4:
-			new BookShop().userTask();
+			new OnlineBookShop().userTask();
 			break;
 		}
 

@@ -8,10 +8,10 @@ import com.emids.services.Inventory;
 import com.emids.services.Product;
 import com.emids.services.ShoppingCart;
 
-public class BookShop {
+public class OnlineBookShop {
 	static Scanner scanner = new Scanner(System.in);
 
-	void adminTask() {
+	public void adminTask() {
 		System.out.println("Select appropriate option\n");
 		System.out.println(
 				" Enter 1 to add book \n Enter 2 to edit book \n Enter 3 to remove book \n Enter 4 See all the books \n Enter 5 to Exit");
@@ -37,6 +37,7 @@ public class BookShop {
 			adminTask();
 			break;
 		case 5:
+			System.out.println("Thank You \n Refresh the page");
 			System.exit(0);
 		}
 	}
@@ -69,13 +70,13 @@ public class BookShop {
 	public static void main(String[] args) {
 		Product product = new Product();
 		product.setDemoBookData();
-		System.out.println("WELCOME TO BOOKSHOP");
+		System.out.println("WELCOME TO ONLINE BOOKSHOP");
 		System.out.println("Please Enter your Name and Password");
 		String name = scanner.next();
 		String password = scanner.next();
 		Admin admin = new Admin();
 		String result = admin.checkDetails(name, password);
-		BookShop bookshop = new BookShop();
+		OnlineBookShop bookshop = new OnlineBookShop();
 		if (result.equals("adminExist")) {
 
 			bookshop.adminTask();
@@ -83,7 +84,7 @@ public class BookShop {
 
 			bookshop.userTask();
 		} else
-			System.out.println("Incorrect User name or Password\n");
+			System.out.println("Incorrect User Name or Password\n");
 
 	}
 }

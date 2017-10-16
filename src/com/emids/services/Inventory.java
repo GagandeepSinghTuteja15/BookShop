@@ -2,7 +2,7 @@ package com.emids.services;
 
 import java.util.Scanner;
 
-import com.emids.Main.BookShop;
+import com.emids.Main.OnlineBookShop;
 import com.emids.domain.Book;
 
 public class Inventory {
@@ -29,7 +29,7 @@ public class Inventory {
 			}
 		}
 		System.out.println("Book Not Found\n");
-		new BookShop().userTask();
+		new OnlineBookShop().userTask();
 	}
 
 	private void searchByBookName() {
@@ -45,7 +45,7 @@ public class Inventory {
 			}
 		}
 		System.out.println("Book Not Found\n");
-		new BookShop().userTask();
+		new OnlineBookShop().userTask();
 
 	}
 }

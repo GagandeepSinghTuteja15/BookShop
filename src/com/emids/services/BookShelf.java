@@ -3,7 +3,7 @@ package com.emids.services;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import com.emids.Main.BookShop;
+import com.emids.Main.OnlineBookShop;
 import com.emids.domain.Book;
 
 public class BookShelf {
@@ -43,7 +43,7 @@ public class BookShelf {
 			Book bookToCart = bookList.get(value);
 			ShoppingCart.addBookToCart(bookToCart);
 			System.out.println("Book added to Cart");
-			new BookShop().userTask();
+			new OnlineBookShop().userTask();
 			break;
 		case 2:
 			int value1 = customer.selectSerialNumber() - 1;

@@ -2,6 +2,7 @@ package com.emids.services;
 
 import java.util.Scanner;
 
+import com.emids.Main.OnlineBookShop;
 import com.emids.domain.Book;
 
 public class Admin {
@@ -35,6 +36,10 @@ public class Admin {
 
 	public void removeBook() {
 		Product product = new Product();
+		if (Product.bookList.size() == 0) {
+			System.out.println("No book to remove");
+			new OnlineBookShop().adminTask();
+		}
 		Product.getbook(Product.bookList);
 		System.out.println("Select serial no");
 		int number = scanner.nextInt();
