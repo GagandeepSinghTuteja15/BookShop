@@ -14,6 +14,10 @@ public class ShoppingCart {
 		bookList.add(book);
 	}
 
+	static void addBookToCartFromBookShelf(Book book) {
+		bookList.add(book);
+	}
+
 	static void showDetailsOfOrder() {
 		System.out.println("Enter the quantity");
 		int quantity = scanner.nextInt();
@@ -44,17 +48,16 @@ public class ShoppingCart {
 	}
 
 	private static void makePayment() {
-		System.out.println("Slect payment Option \n Press 1 For COD \n Press 2 for Net Banking \n Press 3 to Cancel");
+		System.out.println("Select payment Option \n Press 1 For COD \n Press 2 for Net Banking \n Press 3 to Cancel");
 		int value = scanner.nextInt();
 		if (value == 1 || value == 2) {
-			System.out.println("Thanks for Shopping");
+			System.out.println(" Thanks for Shopping\n Refresh the page");
 			System.exit(0);
 		} else if (value == 3) {
-			System.out.println("Thank you \n Refresh the page");
+			System.out.println(" Thank you \n Refresh the page");
 			System.exit(0);
-		}
-		else {
-			System.out.println("Wrong Input");
+		} else {
+			System.err.println("Wrong Input");
 			makePayment();
 		}
 	}
@@ -62,7 +65,7 @@ public class ShoppingCart {
 	public static void showCart() {
 		boolean check = bookList.isEmpty();
 		if (check) {
-			System.out.println("Your Cart is Empty select from list\n");
+			System.out.println("Your Cart is Empty select from list\n******************\n");
 			Product.getbook(Product.bookList);
 			new Customer().userOption();
 		} else {
@@ -74,7 +77,7 @@ public class ShoppingCart {
 
 	static void cartOption() {
 		System.out
-		.println(" Enter 1 to remove book from cart \n Enter 2 to order book from list \n Enter 3 to exist\n");
+				.println(" Enter 1 to remove book from cart \n Enter 2 to order book from list \n Enter 3 to exist\n");
 		int number = scanner.nextInt();
 		Customer customer = new Customer();
 		switch (number) {
@@ -95,7 +98,7 @@ public class ShoppingCart {
 
 	public static void removeBookFromCart(int value) {
 		bookList.remove(value);
-		System.out.println("Successfully removed\n");
+		System.out.println("Successfully removed\n*****************\n");
 		showCart();
 	}
 

@@ -9,7 +9,7 @@ public class Inventory {
 	Scanner scanner = new Scanner(System.in);
 
 	public void searchProduct() {
-		System.out.println(" Enter 1 to search by book name \n Enter 2 to search by author name\n");
+		System.out.println(" **********\nEnter 1 to search by book name \n Enter 2 to search by author name\n");
 		int value = scanner.nextInt();
 		if (value == 1) {
 			searchByBookName();
@@ -28,7 +28,7 @@ public class Inventory {
 				new Customer().userOption();
 			}
 		}
-		System.out.println("Book Not Found\n");
+		System.err.println("Book Not Found\n");
 		new OnlineBookShop().userTask();
 	}
 
@@ -44,7 +44,7 @@ public class Inventory {
 				}
 			}
 		}
-		System.out.println("Book Not Found\n");
+		System.err.println("Book Not Found\n");
 		new OnlineBookShop().userTask();
 
 	}

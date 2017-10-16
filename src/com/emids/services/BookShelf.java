@@ -16,7 +16,7 @@ public class BookShelf {
 
 	public static void removeBookFromShelf(int value) {
 		bookList.remove(value);
-		System.out.println("Removed Succesfully\n");
+		System.out.println("Removed from Book Shelf Succesfully\n********************************\n");
 		showBookShelf();
 	}
 
@@ -24,7 +24,7 @@ public class BookShelf {
 
 		boolean check = bookList.isEmpty();
 		if (check) {
-			System.out.println("Your Cart is Empty select from list\n");
+			System.out.println("Your Book Shelf is Empty select from list\n*************************\n");
 			Product.getbook(Product.bookList);
 			new Customer().userOption();
 		} else {
@@ -42,8 +42,10 @@ public class BookShelf {
 			int value = customer.selectSerialNumber() - 1;
 			Book bookToCart = bookList.get(value);
 			ShoppingCart.addBookToCart(bookToCart);
-			System.out.println("Book added to Cart");
+			System.out.println("Book added to Cart\n**********************\n");
+			removeBookFromShelf(value);
 			new OnlineBookShop().userTask();
+			
 			break;
 		case 2:
 			int value1 = customer.selectSerialNumber() - 1;

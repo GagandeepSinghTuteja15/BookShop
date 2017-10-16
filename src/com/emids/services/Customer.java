@@ -26,7 +26,7 @@ public class Customer {
 
 	public void userOption() {
 		System.out.println(
-				" Enter 1 to add book to cart \n Enter 2 to add to Bookshelf \n Enter 3 to search \n Enter 4 to go back\n");
+				" *************\nEnter 1 to add book to cart \n Enter 2 to add to Bookshelf \n Enter 3 to search \n Enter 4 to go back \n");
 		int value = scanner.nextInt();
 		switch (value) {
 		case 1:
@@ -40,7 +40,7 @@ public class Customer {
 			int numShelf = selectSerialNumber() - 1;
 			Book bookToShelf = Product.bookList.get(numShelf);
 			BookShelf.addBookToBookShelf(bookToShelf);
-			System.out.println("Book added to Book Shelf\n");
+			System.out.println("Book added to Book Shelf\n*******************\n");
 			userOption();
 			break;
 		case 3:

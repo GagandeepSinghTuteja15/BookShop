@@ -41,7 +41,7 @@ public class OnlineBookShop {
 
 	public void userTask() {
 		System.out.println(
-				" Enter 1 to see all books \n Enter 2 to see your BookShelf \n Enter 3 to go to cart \n Enter 4 to search the book\n");
+				"********\n Enter 1 to see all books \n Enter 2 to see your BookShelf \n Enter 3 to go to cart \n Enter 4 to search the book\n");
 		int value = scanner.nextInt();
 
 		switch (value) {
@@ -81,7 +81,7 @@ public class OnlineBookShop {
 
 			bookshop.userTask();
 		} else
-			System.out.println("Incorrect User Name or Password\n");
+			System.err.println("Incorrect User Name or Password\n");
 
 	}
 }
