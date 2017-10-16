@@ -30,18 +30,10 @@ public class Customer {
 		int value = scanner.nextInt();
 		switch (value) {
 		case 1:
-			int numCart = selectSerialNumber() - 1;
-			Book bookToCart = Product.bookList.get(numCart);
-			ShoppingCart.addBookToCart(bookToCart);
-			System.out.println("Book added to Cart\n");
-			userOption();
+			addData(value);
 			break;
 		case 2:
-			int numShelf = selectSerialNumber() - 1;
-			Book bookToShelf = Product.bookList.get(numShelf);
-			BookShelf.addBookToBookShelf(bookToShelf);
-			System.out.println("Book added to Book Shelf\n*******************\n");
-			userOption();
+			addData(value);
 			break;
 		case 3:
 			new Inventory().searchProduct();
@@ -51,5 +43,22 @@ public class Customer {
 			break;
 		}
 
+	}
+
+	private void addData(int value) {
+		if(value==1) {
+		int numCart = selectSerialNumber() - 1;
+		Book bookToCart = Product.bookList.get(numCart);
+		ShoppingCart.addBookToCart(bookToCart);
+		System.out.println("Book added to Cart\n*************\n");
+		userOption();
+		}
+		else if(value==2) {
+			int numShelf = selectSerialNumber() - 1;
+			Book bookToShelf = Product.bookList.get(numShelf);
+			BookShelf.addBookToBookShelf(bookToShelf);
+			System.out.println("Book added to Book Shelf\n*******************\n");
+			userOption();
+		}
 	}
 }
