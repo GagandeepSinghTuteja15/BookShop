@@ -23,7 +23,6 @@ public class Customer {
 		int num = scanner.nextInt();
 		return num;
 	}
-	
 
 	public void userOption() {
 		System.out.println(
@@ -37,7 +36,6 @@ public class Customer {
 			System.out.println("Book added to Cart\n");
 			userOption();
 			break;
-			
 		case 2:
 			int numShelf = selectSerialNumber() - 1;
 			Book bookToShelf = Product.bookList.get(numShelf);
@@ -48,11 +46,8 @@ public class Customer {
 		case 3:
 			new Inventory().searchProduct();
 			break;
-
 		case 4:
 			new BookShop().userTask();
-			break;
-		default:
 			break;
 		}
 

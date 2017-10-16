@@ -14,7 +14,7 @@ public class Book {
 	public Book() {
 	}
 
-	public  String getName() {
+	public String getName() {
 		return this.bookName;
 	}
 
@@ -25,20 +25,22 @@ public class Book {
 	public int getPrice() {
 		return this.price;
 	}
+
 	public void setAuthor(String author) {
-		this.author=author;
+		this.author = author;
 	}
 
 	public void setName(String bookName) {
-		this.bookName=bookName;
+		this.bookName = bookName;
 	}
+
 	public void setPrice(int price) {
-		this.price=price;
+		this.price = price;
 	}
 
 	@Override
 	public String toString() {
 
-		return " name= " + getName() + " author=" + getAuthor() + " Price= " + getPrice()+"\n";
+		return " name= " + getName() + " author=" + getAuthor() + " Price= " + getPrice() + "\n";
 	}
 }

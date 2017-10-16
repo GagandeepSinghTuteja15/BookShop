@@ -16,7 +16,7 @@ public class Product {
 		bookList.add(book2);
 	}
 
-	 void add(Book book) {
+	void add(Book book) {
 		bookList.add(book);
 	}
 

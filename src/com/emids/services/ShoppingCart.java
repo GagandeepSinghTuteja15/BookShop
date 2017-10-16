@@ -63,32 +63,31 @@ public class ShoppingCart {
 		} else {
 			System.out.println("****Book Details****");
 			Product.getbook(bookList);
-	}	
-		cartOption();
 		}
-		
-	
-	static void cartOption()
-	{
-		System.out.println(
-				" Enter 1 to remove book from cart \n Enter 2 to order book from list \n Enter 3 to exist\n");
+		cartOption();
+	}
+
+	static void cartOption() {
+		System.out
+				.println(" Enter 1 to remove book from cart \n Enter 2 to order book from list \n Enter 3 to exist\n");
 		int number = scanner.nextInt();
 		Customer customer = new Customer();
-		switch(number) {
+		switch (number) {
 		case 1:
 			int value = customer.selectSerialNumber() - 1;
 			removeBookFromCart(value);
-				break;
+			break;
 		case 2:
 			placeOrder();
-				break;
+			break;
 		case 3:
-				System.exit(0);
-				break;
+			System.exit(0);
+			break;
 		default:
 			break;
 		}
 	}
+
 	public static void removeBookFromCart(int value) {
 		bookList.remove(value);
 		System.out.println("Successfully removed\n");

@@ -46,12 +46,12 @@ public class Admin {
 
 	public void editBook() {
 		Product.getbook(Product.bookList);
-		int number=new Customer().selectSerialNumber();
+		int number = new Customer().selectSerialNumber();
 		System.out.println("Enter Book Name , Book Author Name, Book Price ");
-		String updatedBookName=scanner.next();
-		String updatedAuthorName=scanner.next();
-		int updatedPrice=scanner.nextInt();
-		 Book book=Product.bookList.get(number-1);
+		String updatedBookName = scanner.next();
+		String updatedAuthorName = scanner.next();
+		int updatedPrice = scanner.nextInt();
+		Book book = Product.bookList.get(number - 1);
 		book.setAuthor(updatedAuthorName);
 		book.setName(updatedBookName);
 		book.setPrice(updatedPrice);
