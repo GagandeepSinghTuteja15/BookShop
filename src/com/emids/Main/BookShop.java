@@ -13,7 +13,7 @@ public class BookShop {
 
 	void adminTask() {
 		System.out.println("Select appropriate option\n");
-		System.out.println(" Enter 1 to add book \n Enter 2 to edit book \n Enter 3 to remove book \n Enter 4 Search a book \n Enter 5 to Exit");
+		System.out.println(" Enter 1 to add book \n Enter 2 to edit book \n Enter 3 to remove book \n Enter 4 See all the books \n Enter 5 to Exit");
 		int value = scanner.nextInt();
 		Admin admin = new Admin();
 		switch (value) {
@@ -32,7 +32,8 @@ public class BookShop {
 			break;
 			
 		case 4:
-			new Inventory().searchProduct();
+			Product.getbook(Product.bookList);
+			adminTask();
 			break;
 		case 5:
 			System.exit(0);
@@ -46,7 +47,7 @@ public class BookShop {
 
 		switch (value) {
 		case 1:
-			Product.getbook(Product.list);
+			Product.getbook(Product.bookList);
 			new Customer().userOption();
 			break;
 
@@ -67,7 +68,7 @@ public class BookShop {
 		Product product = new Product();
 		product.setDemoBookData();
 		System.out.println("WELCOME TO BOOKSHOP");
-		System.out.println("PLease Enter your Name and Password");
+		System.out.println("Please Enter your Name and Password");
 		String name = scanner.next();
 		String password = scanner.next();
 		Admin admin = new Admin();

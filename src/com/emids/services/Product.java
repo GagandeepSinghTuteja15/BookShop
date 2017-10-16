@@ -5,19 +5,19 @@ import java.util.ArrayList;
 import com.emids.domain.Book;
 
 public class Product {
-	public static ArrayList<Book> list = new ArrayList<>();
+	public static ArrayList<Book> bookList = new ArrayList<>();
 
 	public void setDemoBookData() {
 		Book book = new Book("Java", "Halbert", 2000);
 		Book book1 = new Book("Python", "Steve", 3000);
 		Book book2 = new Book("C", "Balaguruswamy", 2200);
-		list.add(book);
-		list.add(book1);
-		list.add(book2);
+		bookList.add(book);
+		bookList.add(book1);
+		bookList.add(book2);
 	}
 
-	void add(Book book) {
-		list.add(book);
+	 void add(Book book) {
+		bookList.add(book);
 	}
 
 	public static void getbook(ArrayList<Book> list) {
@@ -30,7 +30,7 @@ public class Product {
 	}
 
 	void removeBook(int num) {
-		list.remove(num);
+		bookList.remove(num);
 	}
 
 }

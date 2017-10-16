@@ -17,7 +17,7 @@ public class ShoppingCart {
 		for (int i = 0; i < bookList.size(); i++) {
 
 			System.out.println(bookList.get(i));
-			Book bookName = Product.list.get(i);
+			Book bookName = Product.bookList.get(i);
 			total = bookName.getPrice() + total;
 		}
 		String GST = "18%";
@@ -58,7 +58,7 @@ public class ShoppingCart {
 		boolean check = bookList.isEmpty();
 		if (check) {
 			System.out.println("Your Cart is Empty select from list\n");
-			Product.getbook(Product.list);
+			Product.getbook(Product.bookList);
 			new Customer().userOption();
 		} else {
 			System.out.println("****Book Details****");

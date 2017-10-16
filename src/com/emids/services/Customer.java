@@ -23,6 +23,7 @@ public class Customer {
 		int num = scanner.nextInt();
 		return num;
 	}
+	
 
 	public void userOption() {
 		System.out.println(
@@ -31,14 +32,15 @@ public class Customer {
 		switch (value) {
 		case 1:
 			int numCart = selectSerialNumber() - 1;
-			Book bookToCart = Product.list.get(numCart);
+			Book bookToCart = Product.bookList.get(numCart);
 			ShoppingCart.addBookToCart(bookToCart);
 			System.out.println("Book added to Cart\n");
 			userOption();
 			break;
+			
 		case 2:
 			int numShelf = selectSerialNumber() - 1;
-			Book bookToShelf = Product.list.get(numShelf);
+			Book bookToShelf = Product.bookList.get(numShelf);
 			BookShelf.addBookToBookShelf(bookToShelf);
 			System.out.println("Book added to Book Shelf\n");
 			userOption();
@@ -49,6 +51,8 @@ public class Customer {
 
 		case 4:
 			new BookShop().userTask();
+			break;
+		default:
 			break;
 		}
 

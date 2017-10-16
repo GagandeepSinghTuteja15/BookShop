@@ -2,6 +2,7 @@ package com.emids.services;
 
 import java.util.Scanner;
 
+import com.emids.Main.BookShop;
 import com.emids.domain.Book;
 
 public class Inventory {
@@ -20,33 +21,32 @@ public class Inventory {
 	private void searchByAuthorName() {
 		System.out.println("Enter Author Name\n");
 		String searchedAuthorName = scanner.next();
-		for (int i = 0; i < Product.list.size(); i++) {
-			Book authorName = Product.list.get(i);
+		for (int i = 0; i < Product.bookList.size(); i++) {
+			Book authorName = Product.bookList.get(i);
 			if (searchedAuthorName.equalsIgnoreCase(authorName.getAuthor())) {
-				System.out.println(authorName);
+				System.out.println(Product.bookList.indexOf(authorName)+1+" "+authorName);
 				new Customer().userOption();
-			} else {
-				System.out.println("Author Not Found\n");
-				new Customer().userOption();
-			}
+			} 
 		}
-		new Customer().userOption();
+			System.out.println("Book Not Found\n");
+			new BookShop().userTask();
 	}
 
 	private void searchByBookName() {
 		System.out.println("Enter book Name\n");
 		String searchedBookName = scanner.next();
-		for (int i = 0; i < Product.list.size(); i++) {
-			Book bookName = Product.list.get(i);
+		{
+		for (int i = 0; i < Product.bookList.size(); i++) {
+			Book bookName = Product.bookList.get(i);
 			if (searchedBookName.equalsIgnoreCase(bookName.getName())) {
-				System.out.println(bookName);
-				new Customer().userOption();
-				break;
-			} else {
-				System.out.println("Book Not Found\n");
+				System.out.println(Product.bookList.indexOf(bookName)+1+" "+bookName);
 				new Customer().userOption();
 			}
+			}
 		}
+				System.out.println("Book Not Found\n");
+				new BookShop().userTask();
+	
 		
 	}
 }

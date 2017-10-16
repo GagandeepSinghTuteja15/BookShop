@@ -30,32 +30,32 @@ public class Admin {
 		Book book = new Book(name, author, price);
 		product.add(book);
 		System.out.println("Book added\n");
-		Product.getbook(Product.list);
+		Product.getbook(Product.bookList);
 	}
 
 	public void removeBook() {
 		Product product = new Product();
-		Product.getbook(Product.list);
+		Product.getbook(Product.bookList);
 		System.out.println("Select serial no");
 		int number = scanner.nextInt();
 		number = number - 1;
 		product.removeBook(number);
 		System.out.println("Book removed successfully\n");
-		Product.getbook(Product.list);
+		Product.getbook(Product.bookList);
 	}
 
 	public void editBook() {
-		Product.getbook(Product.list);
-		new Customer().selectSerialNumber();
+		Product.getbook(Product.bookList);
+		int number=new Customer().selectSerialNumber();
 		System.out.println("Enter Book Name , Book Author Name, Book Price ");
 		String updatedBookName=scanner.next();
 		String updatedAuthorName=scanner.next();
 		int updatedPrice=scanner.nextInt();
-		Book book= new Book();
-		book.setName(updatedBookName);
+		 Book book=Product.bookList.get(number-1);
 		book.setAuthor(updatedAuthorName);
+		book.setName(updatedBookName);
 		book.setPrice(updatedPrice);
 		System.out.println("Book details updated\n");
-		Product.getbook(Product.list);
+		Product.getbook(Product.bookList);
 	}
 }
