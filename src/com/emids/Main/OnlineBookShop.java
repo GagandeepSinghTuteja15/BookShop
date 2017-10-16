@@ -22,7 +22,6 @@ public class OnlineBookShop {
 			admin.addbook();
 			adminTask();
 			break;
-
 		case 2:
 			admin.editBook();
 			adminTask();
@@ -31,14 +30,12 @@ public class OnlineBookShop {
 			admin.removeBook();
 			adminTask();
 			break;
-
 		case 4:
 			Product.getbook(Product.bookList);
 			adminTask();
 			break;
 		case 5:
 			System.out.println("Thank You \n Refresh the page");
-			System.exit(0);
 		}
 	}
 
