@@ -3,7 +3,7 @@ package com.emids.domain;
 public class Book {
 	private String bookName;
 	private String author;
-	private int price;
+	private double price;
 
 	public Book(String bookName, String author, int price) {
 		this.bookName = bookName;
@@ -22,7 +22,7 @@ public class Book {
 		return this.author;
 	}
 
-	public int getPrice() {
+	public double getPrice() {
 		return this.price;
 	}
 
@@ -34,7 +34,7 @@ public class Book {
 		this.bookName = bookName;
 	}
 
-	public void setPrice(int price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 
