@@ -24,7 +24,7 @@ public class Inventory {
 		for (int i = 0; i < Product.bookList.size(); i++) {
 			Book authorName = Product.bookList.get(i);
 			if (searchedAuthorName.equalsIgnoreCase(authorName.getAuthor())) {
-				System.out.println(Product.bookList.indexOf(authorName) + 1 + " " + authorName);
+				System.out.println(Product.bookList.indexOf(authorName) +"SrNo "+ 1 + " " + authorName);
 				new Customer().userOption();
 			}
 		}
@@ -39,7 +39,7 @@ public class Inventory {
 			for (int i = 0; i < Product.bookList.size(); i++) {
 				Book bookName = Product.bookList.get(i);
 				if (searchedBookName.equalsIgnoreCase(bookName.getName())) {
-					System.out.println(Product.bookList.indexOf(bookName) + 1 + " " + bookName);
+					System.out.println(Product.bookList.indexOf(bookName)+"SrNo "+1 + " " + bookName);
 					new Customer().userOption();
 				}
 			}

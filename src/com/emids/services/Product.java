@@ -24,7 +24,7 @@ public class Product {
 		int count = 0;
 		for (int i = 0; i < list.size(); i++) {
 			count++;
-			System.out.println(count + " " + list.get(i));
+			System.out.println("SrNo "+count + " " + list.get(i));
 		}
 
 	}
