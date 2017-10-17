@@ -28,28 +28,30 @@ public class Customer {
 		System.out.println(
 				" *************\n Enter 1 to add book to cart \n Enter 2 to add to Bookshelf \n Enter 3 to search \n Enter 4 to go back \n");
 		int value = scanner.nextInt();
-		switch (value) {
-		case 1:
-			int numCart = selectSerialNumber() - 1;
-			Book bookToCart = Product.bookList.get(numCart);
-			ShoppingCart.addBookToCart(bookToCart);
-			System.out.println("Book added to Cart\n");
-			userOption();
-			break;
-		case 2:
-			int numShelf = selectSerialNumber() - 1;
-			Book bookToShelf = Product.bookList.get(numShelf);
-			BookShelf.addBookToBookShelf(bookToShelf);
-			System.out.println("Book added to Book Shelf\n*******************\n");
-			userOption();
-			break;
-		case 3:
-			new Inventory().searchProduct();
-			break;
-		case 4:
-			new OnlineBookShop().userTask();
-			break;
+		
+		if(value==1||value==2)
+		{
+			addTo(value);
 		}
+		else if(value==3) {
+			new Inventory().searchName();
+		}
+		else
+			new OnlineBookShop().userTask();
 
+	}
+
+	private void addTo(int value) {
+		int numCart = selectSerialNumber() - 1;
+		Book book = Product.bookList.get(numCart);
+		if(value==1) {
+		ShoppingCart.addBookToCart(book);
+		System.out.println("Book added to Cart\n*******************\n");
+		}
+		else {
+			BookShelf.addBookToBookShelf(book);
+			System.out.println("Book added to Book Shelf\n*******************\n");
+		}
+		userOption();
 	}
 }

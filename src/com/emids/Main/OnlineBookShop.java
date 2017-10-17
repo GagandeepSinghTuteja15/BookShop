@@ -57,7 +57,7 @@ public class OnlineBookShop {
 			ShoppingCart.showCart();
 			break;
 		case 4:
-			new Inventory().searchProduct();
+			new Inventory().searchName();
 			break;
 		default:
 			break;
