@@ -1,6 +1,10 @@
 package com.emids.Main;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.Scanner;
+
+
 import com.emids.services.Admin;
 import com.emids.services.BookShelf;
 import com.emids.services.Customer;
@@ -11,12 +15,12 @@ import com.emids.services.ShoppingCart;
 public class OnlineBookShop {
 	static Scanner scanner = new Scanner(System.in);
 
-	public void adminTask() {
+	public InputStream adminTask() {
 		System.out.println("Select appropriate option\n");
-		System.out.println(
-				" Enter 1 to add book \n Enter 2 to edit book \n Enter 3 to remove book \n Enter 4 See all the books \n Enter 5 to Exit");
+		System.out.println(" Enter 1 to add book \n Enter 2 to edit book \n Enter 3 to remove book \n Enter 4 See all the books \n Enter 5 to Exit");
 		int value = scanner.nextInt();
-		Admin admin = new Admin();
+		 Admin admin = new Admin();
+		 
 		switch (value) {
 		case 1:
 			admin.addbook();
@@ -37,9 +41,26 @@ public class OnlineBookShop {
 		case 5:
 			System.out.println("Thank You \n Refresh the page");
 		}
+		if(value>5||value<1)
+		return error(1);
+		else
+		return null;
 	}
 
-	public void userTask() {
+	private InputStream error(int value) {
+		String value1=" "+value;
+		System.out.println("Please Enter Correct Input\n");
+		InputStream stream = new ByteArrayInputStream(value1.getBytes()); 
+		if(value==1)
+		adminTask();
+		else
+			userTask();
+		return stream;
+
+		
+	}
+
+	public InputStream userTask() {
 		System.out.println(
 				"********\n Enter 1 to see all books \n Enter 2 to see your BookShelf \n Enter 3 to go to cart \n Enter 4 to search the book\n");
 		int value = scanner.nextInt();
@@ -62,8 +83,11 @@ public class OnlineBookShop {
 		default:
 			break;
 		}
-	}
 
+if(value>4||value<1)
+	return error(2);
+return null;
+	}
 	public static void main(String[] args) {
 		Product product = new Product();
 		product.setDemoBookData();
@@ -80,7 +104,7 @@ public class OnlineBookShop {
 		} else if (result.equals("CustomerExist")) {
 
 			bookshop.userTask();
-		} else
+		} else 
 			System.err.println("Incorrect User Name or Password\n");
 
 	}

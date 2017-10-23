@@ -77,7 +77,7 @@ public class ShoppingCart {
 
 	static void cartOption() {
 		System.out
-				.println(" Enter 1 to remove book from cart \n Enter 2 to order book from list \n Enter 3 to exist\n");
+				.println(" Enter 1 to remove book from cart \n Enter 2 to order book from list \n Enter 3 to exit\n");
 		int number = scanner.nextInt();
 		Customer customer = new Customer();
 		switch (number) {
