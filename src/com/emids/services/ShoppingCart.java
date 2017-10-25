@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import com.emids.Main.OnlineBookShop;
 import com.emids.domain.Book;
+import com.emids.utilities.UserInput;
 
 public class ShoppingCart {
 	static Scanner scanner = new Scanner(System.in);
@@ -49,7 +50,7 @@ public class ShoppingCart {
 
 	private static void makePayment() {
 		System.out.println("Select payment Option \n Press 1 For COD \n Press 2 for Net Banking \n Press 3 to Cancel");
-		int value = scanner.nextInt();
+		int value = UserInput.getInput();
 		if (value == 1 || value == 2) {
 			System.out.println(" Thanks for Shopping\n Refresh the page");
 			System.exit(0);
@@ -79,17 +80,16 @@ public class ShoppingCart {
 		System.out
 				.println(" Enter 1 to remove book from cart \n Enter 2 to order book from list \n Enter 3 to exit\n");
 		int number = scanner.nextInt();
-		Customer customer = new Customer();
 		switch (number) {
 		case 1:
-			int value = customer.selectSerialNumber() - 1;
+			int value = UserInput.selectSerialNumber() - 1;
 			removeBookFromCart(value);
 			break;
 		case 2:
 			placeOrder();
 			break;
 		case 3:
-			new OnlineBookShop().userTask();
+			OnlineBookShop.userTask();
 			break;
 		default:
 			break;

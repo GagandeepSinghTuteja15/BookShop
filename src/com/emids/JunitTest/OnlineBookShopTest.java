@@ -1,26 +1,32 @@
 package com.emids.JunitTest;
 
-import java.io.InputStream;
+import java.util.Scanner;
 
+import org.junit.Assert;
 import org.junit.Test;
-import org.mockito.Mockito;
+import org.mockito.Mock;
 
-import com.emids.Main.OnlineBookShop;
+import com.emids.utilities.UserInput;
+
+
 
 public class OnlineBookShopTest {
+	@Mock
+	static Scanner scanner = new Scanner(System.in);
 
-	@Test
+
+	/*@Test
 	public void whenAdminEnterWrongInput() {
-		OnlineBookShop bookShop = new OnlineBookShop();
-		InputStream result = bookShop.adminTask();
-		Mockito.when(System.in).thenReturn(result);
-	}
+		  
+	}*/
 
 	@Test
 	public void whenUserEnterWrongInput() {
-		OnlineBookShop bookShop = new OnlineBookShop();
-		InputStream result = bookShop.userTask();
-		Mockito.when(System.in).thenReturn(result);
+//	    Mockito.when(UserInput.getInput()).thenReturn(6);
+//	    OnlineBookShop.adminTask();
+	Assert.assertEquals(6,UserInput.getInput());
 	}
+	
+	
 	
 }

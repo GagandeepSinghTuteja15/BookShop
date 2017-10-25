@@ -16,21 +16,26 @@ public class Product {
 		bookList.add(book2);
 	}
 
-	void add(Book book) {
+	public void add(Book book) {
 		bookList.add(book);
 	}
 
-	public static void getbook(ArrayList<Book> list) {
+	public static boolean getbook(ArrayList<Book> list) {
 		int count = 0;
 		for (int i = 0; i < list.size(); i++) {
 			count++;
 			System.out.println("SrNo "+count + " " + list.get(i));
 		}
+		return true;
 
 	}
 
-	void removeBook(int num) {
+	public int removeBook(int num) {
+		if(num<=bookList.size()&&num>=0) {
 		bookList.remove(num);
+		return 1;
+		}
+		return 0;
 	}
 
 }

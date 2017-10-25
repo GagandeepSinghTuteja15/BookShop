@@ -5,10 +5,10 @@ public class Book {
 	private String author;
 	private double price;
 
-	public Book(String bookName, String author, int price) {
+	public Book(String bookName, String author, double price2) {
 		this.bookName = bookName;
 		this.author = author;
-		this.price = price;
+		this.price = price2;
 	}
 
 	public Book() {

@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import com.emids.Main.OnlineBookShop;
 import com.emids.domain.Book;
+import com.emids.utilities.UserInput;
 
 public class Admin {
 	String adminName = "gagan";
@@ -27,7 +28,7 @@ public class Admin {
 		System.out.println("Enter Author name");
 		String author = scanner.next();
 		System.out.println("Enter Price");
-		int price = scanner.nextInt();
+		double price = scanner.nextInt();
 		Book book = new Book(name, author, price);
 		product.add(book);
 		System.out.println("Book added\n");
@@ -38,20 +39,25 @@ public class Admin {
 		Product product = new Product();
 		if (Product.bookList.size() == 0) {
 			System.out.println("No book to remove");
-			new OnlineBookShop().adminTask();
+			OnlineBookShop.adminTask();
 		}
 		Product.getbook(Product.bookList);
-		System.out.println("Select serial no");
-		int number = scanner.nextInt();
+		int number = UserInput.selectSerialNumber();
 		number = number - 1;
-		product.removeBook(number);
-		System.out.println("Book removed successfully\n");
+		int result=product.removeBook(number);
+		if(result==1) {
+		System.out.println(result);
 		Product.getbook(Product.bookList);
+	}
+		else {
+			System.out.println("Wrong Input");
+			removeBook();
+	}
 	}
 
 	public void editBook() {
 		Product.getbook(Product.bookList);
-		int number = new Customer().selectSerialNumber();
+		int number = UserInput.selectSerialNumber();
 		System.out.println("Enter Book Name , Book Author Name, Book Price ");
 		String updatedBookName = scanner.next();
 		String updatedAuthorName = scanner.next();

@@ -19,7 +19,7 @@ public class Inventory {
 			}
 		}
 		System.out.println("Book Not Found\n");
-		new OnlineBookShop().userTask();
+		OnlineBookShop.userTask();
 	}
 
 }

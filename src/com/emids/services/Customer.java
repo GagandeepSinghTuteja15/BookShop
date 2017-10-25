@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import com.emids.Main.OnlineBookShop;
 import com.emids.domain.Book;
+import com.emids.utilities.UserInput;
 
 public class Customer {
 	String customerName = "user";
@@ -18,40 +19,41 @@ public class Customer {
 			return "NoMatch";
 	}
 
-	public int selectSerialNumber() {
-		System.out.println("Write serial no to Select book\n");
-		int number = scanner.nextInt();
-		return number;
-	}
+	
 
-	public void userOption() {
+	public boolean userOption() {
 		System.out.println(
 				" *************\n Enter 1 to add book to cart \n Enter 2 to add to Bookshelf \n Enter 3 to search \n Enter 4 to go back \n");
-		int value = scanner.nextInt();
-		
+		int value = UserInput.getInput();		
 		if(value==1||value==2)
 		{
 			addTo(value);
+			return true;
 		}
 		else if(value==3) {
 			new Inventory().searchName();
+			return true;
 		}
 		else
-			new OnlineBookShop().userTask();
+			OnlineBookShop.userTask();
+		return true;
 
 	}
 
-	private void addTo(int value) {
-		int numCart = selectSerialNumber() - 1;
+	private boolean addTo(int value) {
+		int numCart = UserInput.selectSerialNumber() - 1;
 		Book book = Product.bookList.get(numCart);
 		if(value==1) {
 		ShoppingCart.addBookToCart(book);
 		System.out.println("Book added to Cart\n*******************\n");
+		return true;
 		}
 		else {
 			BookShelf.addBookToBookShelf(book);
 			System.out.println("Book added to Book Shelf\n*******************\n");
+			
 		}
 		userOption();
+		return false;
 	}
 }
